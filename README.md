@@ -42,33 +42,45 @@ Installation
 
 ### 1\. Clone the Repository
 
-`   git clone https://github.com/karthicksundar95/MediBot.git  cd MediBot   `
+``` bash
+   git clone https://github.com/karthicksundar95/MediBot.git 
+   
+   cd MediBot   
+```
 
 ### 2\. Set Up Virtual Environment
 
-``   python3 -m venv venv  source venv/bin/activate  # On Windows, use `venv\Scripts\activate`   ``
-
+```bash
+   python3 -m venv venv  source venv/bin/activate  # On Windows, use `venv\Scripts\activate
+```
 ### 3\. Install Dependencies
 
-`   pip install -r requirements.txt   `
-
+```bash
+   pip install -r requirements.txt
+```
 ### 4\. Configure Environment Variables
 
 Create a .env file in the root directory and add your API keys:
 
-`   PINECONE_API_KEY=your_pinecone_api_key  OPENAI_API_KEY=your_openai_api_key   `
-
+```bash
+    PINECONE_API_KEY=your_pinecone_api_key  
+    OPENAI_API_KEY=your_openai_api_key
+```
 ### 5\. Initialize Pinecone Index
 
 Run the following script to store embeddings:
 
-`   python store_index.py   `
+```bash
+    python store_index.py
+```
 
 ### 6\. Run the Application
 
 Start the Flask server:
 
-`   python app.py   `
+```bash
+    python app.py
+```
 
 Access the chatbot at http://localhost:8080 in your web browser.
 
