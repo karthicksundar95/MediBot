@@ -5,6 +5,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format= '[%(asctime)s]: %(message)s:')
 
 files = [
+    "data/",
     "src/__init__.py",
     "src/helper.py",
     "src/prompt.py",
@@ -18,13 +19,20 @@ files = [
 ]
 
 for file_path in files:
-    file_dir, filename = os.path.split(Path(file_path))
+    filename=''
+    file_dir=''
+
+    if file_path.endswith("/"):
+        file_dir = file_path
+    else:
+        file_dir, filename = os.path.split(Path(file_path))
 
     if file_dir != '':
         os.makedirs(file_dir, exist_ok=True)
         logging.info(f"Creating directory: {file_dir} for the file path {file_path}")
 
-    if (os.path.exists(file_path) == False) or (os.path.getsize(file_path)==0):
-        with open(file_path, 'w') as f:
-            pass
-        logging.info(f"Created file: {filename} for the file path {file_path}")
+    if filename != '':
+        if (os.path.exists(file_path) == False) or (os.path.getsize(file_path)==0):
+            with open(file_path, 'w') as f:
+                pass
+            logging.info(f"Created file: {filename} for the file path {file_path}")
